@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="edu.harvard.fas.rbrady.tpteam.tpbuddy.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="TPBuddyStub Perspective"
+            class="edu.harvard.fas.rbrady.tpteam.tpbuddy.Perspective"
+            id="edu.harvard.fas.rbrady.tpteam.tpbuddy.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            class="edu.harvard.fas.rbrady.tpteam.tpbuddy.views.TestView"
+            icon="icons/testhier.gif"
+            id="edu.harvard.fas.rbrady.tpteam.tpbuddy.views.testview"
+            name="Project Test Tree"/>
+      <view
+            allowMultiple="false"
+            class="edu.harvard.fas.rbrady.tpteam.tpbuddy.views.EventHistoryView"
+            icon="icons/event_message.gif"
+            id="edu.harvard.fas.rbrady.tpteam.tpbuddy.eventhistview"
+            name="Event History"/>
+      <view
+            allowMultiple="false"
+            class="edu.harvard.fas.rbrady.tpteam.tpbuddy.views.ProjectView"
+            icon="icons/checkout.gif"
+            id="edu.harvard.fas.rbrady.tpteam.tpbuddy.projectview"
+            name="Project View"/>
+      <view
+            allowMultiple="false"
+            class="edu.harvard.fas.rbrady.tpteam.tpbuddy.views.DetailView"
+            icon="icons/test.gif"
+            id="edu.harvard.fas.rbrady.tpteam.tpbuddy.views.detailview"
+            name="Test Details View"/>
+      <view
+            allowMultiple="false"
+            class="edu.harvard.fas.rbrady.tpteam.tpbuddy.views.ReportView"
+            icon="icons/report.gif"
+            id="edu.harvard.fas.rbrady.tpteam.tpbuddy.views.reportview"
+            name="Project Report View"/>
+   </extension>
+      
+      <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="edu.harvard.fas.rbrady.tpteam.tpbuddy.tpteamActionSet"
+            label="TPTeam"
+            visible="true">
+         <action
+      		   class="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.ExitAction"
+               icon="icons/exit.gif"
+               id="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.eventhistoryaction"
+               label="Exit"
+               style="push"
+               toolbarPath="edu.harvard.fas.rbrady.tpteam.tpbuddy.topseparator"               
+               tooltip="Exit TPBuddy"/>   
+         <action
+      		   class="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.EventHistoryAction"
+               icon="icons/event_message.gif"
+               id="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.eventhistoryaction"
+               label="Open Event History View..."
+               style="push"
+               toolbarPath="edu.harvard.fas.rbrady.tpteam.tpbuddy.topseparator"               
+               tooltip="Open Event History View"/>
+         <action
+      		   class="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.TestDetailAction"
+               icon="icons/test.gif"
+               id="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.testdetailaction"
+               label="Open Test Details View..."
+               style="push"
+               toolbarPath="edu.harvard.fas.rbrady.tpteam.tpbuddy.topseparator"               
+               tooltip="Open Test Details View"/>            
+         <action
+      		   class="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.TestTreeAction"
+               icon="icons/testhier.gif"
+               id="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.testtreeaction"
+               label="Open Test Tree View..."
+               style="push"
+               toolbarPath="edu.harvard.fas.rbrady.tpteam.tpbuddy.topseparator"               
+               tooltip="Open Test Tree View"/>      
+         <action
+      		   class="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.ProjectReportAction"
+               icon="icons/report.gif"
+               id="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.ProjectReportAction"
+               label="View Project Reports"
+               style="push"
+               toolbarPath="edu.harvard.fas.rbrady.tpteam.tpbuddy.topseparator"               
+               tooltip="View Project Report Charts"/>      
+         <action
+      			class="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.ProjectViewAction"
+               icon="icons/checkout.gif"
+               id="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.ProjectViewAction"
+               label="View Projects"
+               style="push"
+               toolbarPath="edu.harvard.fas.rbrady.tpteam.tpbuddy.topseparator"               
+               tooltip="View Projects From TPManager"/>      
+         <action
+      			class="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.LoginAction"
+               icon="icons/person.gif"
+               id="edu.harvard.fas.rbrady.tpteam.tpbuddy.actions.LoginAction"
+               label="Connect..."
+               style="push"
+               toolbarPath="edu.harvard.fas.rbrady.tpteam.tpbuddy.topseparator"               
+               tooltip="Connect Workspace to ECF Group"/>               
+      </actionSet>
+   </extension>
+      <extension
+            id="tpbuddy_product"
+            point="org.eclipse.core.runtime.products">
+         <product
+               application="edu.harvard.fas.rbrady.tpteam.tpbuddy.application"
+               name="tpbuddy"/>
+      </extension>
+      <extension
+            id="product"
+            point="org.eclipse.core.runtime.products">
+         <product
+               application="edu.harvard.fas.rbrady.tpteam.tpbuddy.application"
+               name="tpbuddy"/>
+      </extension>
+   
+</plugin>

@@ -1,0 +1,54 @@
+<!-- *******************************************************************************
+ * 
+ * File		:	addProduct.html
+ *
+ * Author	:	Bob Brady, rpbrady@gmail.com
+ * 
+ * Contents	:	Provides a form for adding a TPTeam Product via the
+ 				administrative Web user pages
+ *  
+ ****************************************************************************** -->
+<html>
+<head>
+<title>TPManager Admin Home Page</title>
+<script language="JavaScript">
+<!--
+	function validateForm ( )
+	{
+		var name = document.addProd.prodName.value;
+		var desc = document.addProd.prodDesc.value;
+		if( name == "")
+		{
+			alert("Please enter at least a product name.");
+			return false;
+		}
+		document.addProd.action = "addProductEntity";
+		document.addProd.submit();
+        return true;
+}
+-->
+</script>
+
+</head>
+<body>
+
+<h3 align="center">TPManager Admin</h3>
+<div align="center">
+<a href="../index.html">Home</a>
+<hr size="2">
+<p>
+
+<h4>Add Product</h4>
+<form name="addProd" method="post" onSubmit="return validateForm( );">
+<table >
+<tr><th>Name:</th><td><input type="text" name="prodName" size="25"></td></tr>
+<tr><th>Description:</th><td><input type="text" name="prodDesc" size="50"></td></tr>
+</table>
+<br>
+<input type="submit" value="Add">
+</form>
+<p>
+</div>
+<hr size="2>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/TPTeam"
+	xmlns:tns="http://www.example.org/TPTeam"
+	elementFormDefault="qualified">
+
+	<complexType name="RoleType">
+		<sequence>
+			<element name="name" nillable="true" type="string" />
+			<element name="description" nillable="true" type="string" />
+		</sequence>
+		<attribute name="roleId" type="int" />
+	</complexType>
+
+	<element name="role" type="tns:RoleType"></element>
+
+	<complexType name="TpteamUserType">
+		<sequence>
+			<element name="firstName" nillable="true" type="string"
+				minOccurs="0" />
+			<element name="lastName" nillable="true" type="string"
+				minOccurs="0" />
+			<element name="userName" nillable="true" type="string" />
+			<element name="ecfId" nillable="true" type="string" />
+			<element name="email" nillable="true" type="string" />
+			<element name="password" nillable="true" type="string"
+				minOccurs="0" />
+			<element name="phone" nillable="true" type="string"
+				minOccurs="0" />
+			<element name="role" nillable="true" type="tns:RoleType"
+				minOccurs="0" />
+			<element name="createdBy" nillable="true" type="int"
+				minOccurs="0" />
+			<element name="createdDate" nillable="true" type="dateTime"
+				minOccurs="0" />
+			<element name="modifiedBy" nillable="true" type="int"
+				minOccurs="0" />
+			<element name="modifiedDate" nillable="true" type="dateTime"
+				minOccurs="0" />
+			<element name="token" nillable="true" type="tns:TokenType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="id" type="int" />
+	</complexType>
+
+	<element name="tpTeamUser" type="tns:TpteamUserType"></element>
+
+	<complexType name="ProductType">
+		<sequence>
+			<element name="name" nillable="true" type="string" />
+			<element name="description" nillable="true" type="string" />
+		</sequence>
+		<attribute name="id" type="int" />
+	</complexType>
+
+	<element name="product" type="tns:ProductType"></element>
+
+	<complexType name="ProjectType">
+		<sequence>
+			<element name="name" nillable="true" type="string" />
+			<element name="description" nillable="true" type="string" />
+			<element name="product" nillable="true"
+				type="tns:ProductType" minOccurs="0" />
+			<element name="tests" nillable="true" type="tns:TestType"
+				minOccurs="0" maxOccurs="unbounded" />
+			<element name="tpteamUsers" nillable="true"
+				type="tns:TpteamUserType" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="id" type="int" />
+	</complexType>
+
+	<element name="project" type="tns:ProjectType"></element>
+	
+	<complexType name="ProjectsType">
+		<sequence>
+			<element name="project" nillable="true" type="tns:ProjectType" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	
+	<element name="projects" type="tns:ProjectsType"></element>
+
+
+	<complexType name="TestTypeType">
+		<sequence>
+			<element name="name" nillable="true" type="string" />
+		</sequence>
+		<attribute name="id" type="int" />
+	</complexType>
+
+	<element name="testType" type="tns:TestTypeType"></element>
+
+	<complexType name="TestType">
+		<sequence>
+			<element name="name" nillable="true" type="string" />
+			<element name="description" nillable="true" type="string"
+				minOccurs="0" />
+			<element name="parentId" nillable="true" type="int"
+				minOccurs="0" />
+			<element name="isFolder" nillable="true" type="string"
+				minOccurs="0" />
+			<element name="projectId" nillable="true" type="int"
+				minOccurs="0" />
+			<element name="testTypeName" nillable="true"
+				type="string" minOccurs="0" />
+			<element name="path" nillable="true" type="string"
+				minOccurs="0" />
+			<element name="createdBy" nillable="true"
+				type="tns:TpteamUserType" minOccurs="0" />
+			<element name="createdDate" nillable="true" type="dateTime"
+				minOccurs="0" />
+			<element name="modifiedBy" nillable="true"
+				type="tns:TpteamUserType" minOccurs="0" />
+			<element name="modifiedDate" nillable="true" type="dateTime"
+				minOccurs="0" />
+			<element name="junitTest" nillable="true"
+				type="tns:JunitTestType" minOccurs="0" />
+			<element name="testExecution" nillable="true"
+				type="tns:TestExecutionType" minOccurs="0" maxOccurs="unbounded" />
+			<element name="children" nillable="true" type="tns:TestType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="id" type="int" />
+	</complexType>
+
+	<element name="test" type="tns:TestType"></element>
+
+	<complexType name="TestsType">
+		<sequence>
+			<element name="test" nillable="true" type="tns:TestType" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<element name="tests" type="tns:TestsType"></element>
+	
+
+	<complexType name="JunitTestType">
+		<sequence>
+			<element name="eclipseHome" nillable="true" type="string" />
+			<element name="workspace" nillable="true" type="string" />
+			<element name="project" nillable="true" type="string" />
+			<element name="testSuite" nillable="true" type="string" />
+			<element name="reportDir" nillable="true" type="string" />
+			<element name="tptpConnection" nillable="true"
+				type="string" />
+		</sequence>
+		<attribute name="id" type="int" />
+	</complexType>
+
+	<element name="junitTest" type="tns:JunitTestType"></element>
+
+	<complexType name="TestExecutionType">
+		<sequence>
+			<element name="status" nillable="true" type="string" />
+			<element name="execDate" nillable="true" type="dateTime" />
+			<element name="comments" nillable="true" type="string" />
+		</sequence>
+		<attribute name="id" type="int" />
+	</complexType>
+
+	<element name="testExecution" type="tns:TestExecutionType"></element>
+
+	<complexType name="TokenIdType">
+		<sequence>
+			<element name="tokenId" nillable="true" type="string" />
+			<element name="userId" type="int" />
+		</sequence>
+	</complexType>
+
+	<element name="TokenId" type="tns:TokenIdType"></element>
+
+	<complexType name="TokenType">
+		<sequence>
+			<element name="createdDate" nillable="true" type="dateTime" />
+			<element name="hostIpAddr" nillable="true" type="string" />
+			<element name="id" nillable="true" type="tns:TokenIdType" />
+		</sequence>
+	</complexType>
+
+	<element name="token" type="tns:TokenType"></element>
+</schema>

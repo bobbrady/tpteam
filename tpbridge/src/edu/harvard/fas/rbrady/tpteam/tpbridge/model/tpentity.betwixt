@@ -1,0 +1,16 @@
+<!--
+	File		:	tpentity.betwixt
+	
+	Author		: 	Bob Brady, rpbrady@gmail.com
+	
+	Contents	:	Betwixt custom serialization file
+					for TPEntity objects
+-->
+<?xml version='1.0' encoding='UTF-8' ?>
+<info primitiveTypes="attribute">
+<element name='tpEntity'>
+<element name='children' property='children' class='edu.harvard.fas.rbrady.tpteam.tpbridge.model.TPEntity'/>
+<element name='parent' property='parent' class='edu.harvard.fas.rbrady.tpteam.tpbridge.model.TPEntity'/>
+<addDefaults/>
+</element>
+</info>
