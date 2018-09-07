@@ -1,4 +1,4 @@
-## TPTeam: a collaborative testing using Eclipse OSGi and XMPP chat protocol, embedded in Tomcat 
+## TPTeam: a collaborative testing application using Eclipse OSGi and XMPP chat protocol, embedded in Tomcat 
 ![TPTeam Architecture](docs/images/UseCase-full.jpg "TPTeam Architecture")
 
 ### Overview
